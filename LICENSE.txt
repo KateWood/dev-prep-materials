@@ -108,7 +108,7 @@ Creative Commons may be contacted at creativecommons.org.
 
 Additional languages available: Bahasa Indonesia, Nederlands, norsk, suomeksi, te reo Māori, українська, 日本語. Please read the FAQ for more information about official translations.
 
-``
+______________________________________________________________________________________________________________________________
 
 GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
