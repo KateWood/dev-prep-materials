@@ -2,7 +2,16 @@
 
 ###Navigating around your development environment
 
-Welcome to the new and exciting world of being a programmer! In order to kick us off this morning we are going to be setting up a simple development environment (developer fancy talk for installing a few things), and getting familiar with **git** and **github**; The developer's most useful tool. 
+Welcome to the new and exciting world of being a programmer! In order to kick us off this morning we are going to be setting up a simple development environment (developer fancy talk for installing a few things) and getting familiar with **git** and **github**; The developer's most useful tool. 
+
+#ROADMAP
+* Install Fest
+* Use the most common commands to navigate and modify files / directories via the Terminal.app (on Mac) or GitBash (on Windows)
+* Summarize a basic filesystem structure, including absolute and relative paths
+* Differentiate between navigating the file system using the CLI vs. the GUI
+* Explain basic git commands like init, add, commit, push, pull and clone
+* Distinguish between local and remote repositories
+* Create, copy, and delete repositories locally, or on Github
 
 ##Install Fest
 
@@ -11,10 +20,112 @@ Welcome to the new and exciting world of being a programmer! In order to kick us
 * Atom
 * MacDown or other open source Markdown editor
 * Github Desktop (and creating a new github account)
+* Slack (Desktop or Web App log in) 
+* [Dev Prep](https://github.com/dev-prep) on Github
+
+##Intro to Command Line
+
+####What is A Command Line Interface?
+
+A command-line interface, sometimes referred to as a CLI, is a human/computer interface into which you can type text commands to perform specific tasks — in contrast to the mouse's pointing and clicking on menus and buttons (Graphic User Interface or GUI). 
+
+> What are the pros and cons of using a CLI versus a GUI?
+
+We use a program called a 'shell' that provides the command line interface. The shell interprets these commands and passes them to the master control program of the computer (known as the 'kernel'). There are many different varieties of shell that you can choose from, but the most common these days is the Bash shell.
+
+We run the Bash shell inside our Terminal.app (On Mac)
+A similar version to Bash shell called Git Bash is available on Windows and comes with Github Desktop for Windows... so go ahead! Load it up! 
+
+###Basic terminal commands
+
+```
+pwd(present working directory)	
+cd (change directory)
+ls (list)	
+touch (creates a file)
+rm (remove)
+mkdir (make directory)
+rmdir (remove directory)
+man (user manual)	
+```
+
+###Demo
+
+Let's find our current directory!
+	
+`$ pwd`
+
+*Returns the directory your are currently in*
+
+Navigate to our home directory
+
+`$ cd`
+	
+*When cd is used with no parameter, it navigates back to home directory*
+
+You can also get back to the home directory using the ~
+
+`$ cd ~`
+
+Navigate to the directory above
+
+`$ cd ..`
+
+*The periods are important, one period = current directory. two periods = the directory above*
+
+Navigate the two directories above
+
+`$ cd ../..`
+
+
+List all of the files in our directory
+
+`$ ls`
+
+*Return a list of all the files and folders in the current directory*
+
+Let's list everything in the long format by using the -l flag
+
+`$ ls -l`
+
+###File paths
+
+When you combine directories using `/` "forward slash", you create a **path** through your computer's **file system** 
+
+You can use `cd` to change directories using paths. 
+
+Paths are very useful when giving instructions about how to find certain resources, or assets, that a program or website needs in order to display correctly. 
+
+Paths can be `relative` or `absolute`
+
+###CodeAlong
+
+Making a website using only Terminal:
+
+`$ mkdir hello_world` 
+
+`$ cd hello_world`
+
+`$ touch index.html`
+
+`$ echo "Hello world" > index.html`
+
+`$ open index.html /Applications/Google\ Chrome.app/`
+
+`$ open /Applications/Sublime\ Text.app/`
+
+Let's remove it
+
+`$ man rm // Find out about the rm command`
+
+`$ cd ..`
+
+`$ rm -rv hello_world`
+
 
 ##Intro to Markdown
 
-Markdown is an open source mark up language (similar to HTML, though simpler) commonly used to create READMEs for instructions and information about a code repository or project. It is also a fantastic way for you to take notes as it has all sorts of code-friendly features such as code blocks: 
+Markdown is a mark up language (similar to HTML) commonly used to create READMEs for instructions and information about a code repository or project. It is also a fantastic way for you to take notes as it has all sorts of code-friendly features such as code blocks: 
 
 ```javascript 
 function javascript_example (message) {
@@ -44,7 +155,6 @@ Activity (5 minutes)
 
 1. Open your markdown editor of choice (MacDown)
 2. Write some markdown and learn a little bit about this language
-
 
 
 ##Intro to Github
@@ -96,3 +206,9 @@ Step 3. Make and commit changes
 2. make some changes to the code
 3. `$ git add -A` add all changes to git
 4. `$ git commit -m "nice commit message"` commit changes using a nice message 
+
+##Lab 
+
+Practice creating a new repo, both locally and on github. 
+
+Bonus points if you figure out how to connect remote and local repositories! More on that later! 
