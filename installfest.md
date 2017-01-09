@@ -4,7 +4,7 @@ Here are a few tools we will be using all week in the Dev Prep courses. Please t
 
 #### Browser
 
-Our preferred browser for develpment is Google Chrome.  
+Our preferred browser for development is Google Chrome.  
 Install it [here](https://www.google.com/chrome/browser/features.html?brand=CHBD&gclid=Cj0KEQiAhs3DBRDmu-rVkuif0N8BEiQAWuUJrwRyrxo0icrOlV3smuRl-mOWJf3T-eWp_uI10uTfMo8aApao8P8HAQ&dclid=CLnt76TWtdECFVRofgodeecADA).
 
 #### Text Editors
@@ -18,11 +18,11 @@ Install Atom [here](https://atom.io/).
 Markdown files can be edited in a regular text editor, like Sublime Text or Atom, but there is another tool called MacDown which is made specifically for markdown and displays it nicely as you write it.  
 Install MacDown [here](http://macdown.uranusjr.com/).
 
-You will probably get a warning the first time you open MacDown, since it is made my unknown developers. Don't worry!
+You will probably get a warning the first time you open MacDown, since it is made by unknown developers. That's just because it's not available in the app store. Don't worry!
 
 #### GitHub Desktop
 
-We can interact with GitHub through the terminal, but many beginners find the GitHub Desktop application easier used to get started.  
+We can interact with GitHub through the terminal, but many beginners find the GitHub Desktop application easier to use when get started.  
 Install GitHub Desktop [here](https://help.github.com/desktop/guides/getting-started/installing-github-desktop/).
 
 #### Slack
