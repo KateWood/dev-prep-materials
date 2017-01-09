@@ -2,6 +2,13 @@
 
 Before we start building out a portfolio page, let's talk a little bit about CSS and CDNs. We'll do a *lot* more CSS tomorrow, but let's learn a little today so that our portfolio pages can be a little more fun!
 
+#### SWBAT (Students will be able to)
+
+- Build a simple HTML page
+- Add simple styling
+- Use git and github to save progress
+- Use a CDN to access a library
+
 ## Wireframe
 
 Before we write any code, let's draw a simple wireframe for what we want our portfolio pages to look like. We'll keep it basic for now while we're working together, but you can add your own spin to it later.
@@ -42,7 +49,19 @@ Next, let's add a title inside the body. What would be a good tag to use? Type y
 
 Now, right click on the index file and click "Open in Browser." This will open your file in your default browser. For this course, Chrome is the best browser to use, so if Chrome is not your default browser, just copy the file address from the URL and open it in Chrome. If everything is working, you should see your title in the browser tab and your name in the browser window.
 
-Before we add any more content, let's set up our CSS so we can add some style!
+## Using Git
+
+Now that we've done a little bit of work, let's set up this directory as a git repo and connect it to GitHub. This way your code will be stored on the internet and you can make commits after each major change!
+
+```bash
+git init
+git add -A
+git commit -m "initial commit"
+```
+
+Now let's set up the GitHub version of this repo and then connect them!
+
+Now that we've made a commit and set up our repo, let's set up our CSS so we can add some style!
 
 ## Adding a CSS File
 
