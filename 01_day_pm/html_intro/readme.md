@@ -199,7 +199,7 @@ For the above tags, any style you assign to the `pink` class in your CSS file wi
 <p id="paragraph1">This is a paragraph.</p>
 ```
 
-## Outro
+## Conclusion
 
 We've now covered the basics of an HTML page. Below are some references beyond this markdown if you need any additional resources.
 
