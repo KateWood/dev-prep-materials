@@ -12,7 +12,6 @@
 | Explain the purpose of HTML attributes as opposed to their content. |
 | Identify the parts of an HTML element (tagname/type, attributes and values, content, and closing tag). |
 | Assign attributes to HTML elements using the correct format. |
-| Use a CDN to source in a library. |
 
 ## What is HTML?
 
