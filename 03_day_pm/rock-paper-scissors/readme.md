@@ -151,11 +151,11 @@ These three possibilities are dependent on *conditions*, so let's write out our 
 
 ```js
 if (computerChoice < 0.34) {
-  computerChoice = "rock";
+  computerChoice = 'rock';
 } else if(computerChoice <= 0.67) {
-  computerChoice = "paper";
+  computerChoice = 'paper';
 } else {
-  computerChoice = "scissors";
+  computerChoice = 'scissors';
 }
 ```
 
@@ -173,17 +173,17 @@ Instead of typing `userChoice` and `computerChoice` into the console every time 
 console.log('connected!')
 
 var userChoice = prompt('What is your move?')
-console.log("You chose: " + userChoice)
+console.log('You chose: ' + userChoice)
 
 var computerChoice = Math.random()
 if (computerChoice < 0.34) {
-  computerChoice = "rock"
+  computerChoice = 'rock'
 } else if(computerChoice <= 0.67) {
-  computerChoice = "paper"
+  computerChoice = 'paper'
 } else {
-  computerChoice = "scissors"
+  computerChoice = 'scissors'
 }
-console.log("Computer chose: " + computerChoice)
+console.log('Computer chose: ' + computerChoice)
 ```
 
 **Where** you put the `console.log()` statements matters. Make sure it is *below* the where the variable is defined, or where it is updated (in the case of `computerChoice`).
@@ -231,24 +231,24 @@ Now let's fill in our function:
 function compare(choice1, choice2){
   var message
   if (choice1 === choice2) {
-    message = "The result is a tie!"
-  } else if (choice1 === "rock") {
-    if (choice2 === "scissors") {
-      message = "rock wins - congratulations!"
+    message = 'The result is a tie!'
+  } else if (choice1 === 'rock') {
+    if (choice2 === 'scissors') {
+      message = 'rock wins - congratulations!'
     } else {
-      message = "paper wins - rematch?"
+      message = 'paper wins - rematch?'
     }
-  } else if (choice1 === "paper") {
-    if (choice2 === "rock") {
-      message = "paper wins - congratulations!"
+  } else if (choice1 === 'paper') {
+    if (choice2 === 'rock') {
+      message = 'paper wins - congratulations!'
     } else {
-      message = "scissors wins - rematch?"
+      message = 'scissors wins - rematch?'
     }
-  } else if (choice1 === "scissors") {
-    if (choice2 === "rock") {
-      message = "rock wins - rematch?"
+  } else if (choice1 === 'scissors') {
+    if (choice2 === 'rock') {
+      message = 'rock wins - rematch?'
     } else {
-      message = "scissors wins - congratulations!"
+      message = 'scissors wins - congratulations!'
     }
   }
   console.log(message)
@@ -289,19 +289,19 @@ Another issue we could encounter when dealing with user input is typos or other 
 If the user's choice is one of the three valid choices, we'll have the computer make a move and compare the two moves, otherwise, we'll just tell the user that their input was invalid.
 
 ```js
-if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
   var computerChoice = Math.random()
   if (computerChoice < 0.34) {
-    computerChoice = "rock"
+    computerChoice = 'rock'
   } else if(computerChoice <= 0.67) {
-    computerChoice = "paper"
+    computerChoice = 'paper'
   } else {
-    computerChoice = "scissors"
+    computerChoice = 'scissors'
   }
-  console.log("Computer chose: " + computerChoice)
+  console.log('Computer chose: ' + computerChoice)
   compare(userChoice, computerChoice)
 } else {
-  console.log("That's not a valid move!")
+  console.log('That is not a valid move!')
 }
 ```
 
@@ -311,50 +311,75 @@ Your JavaScript file in its entirety now looks like this:
 console.log('connected!')
 
 var userChoice = prompt('What is your move?').toLowerCase()
-console.log("You chose: " + userChoice)
+console.log('You chose: ' + userChoice)
 
-if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
   var computerChoice = Math.random()
   if (computerChoice < 0.34) {
-    computerChoice = "rock"
+    computerChoice = 'rock'
   } else if(computerChoice <= 0.67) {
-    computerChoice = "paper"
+    computerChoice = 'paper'
   } else {
-    computerChoice = "scissors"
+    computerChoice = 'scissors'
   }
-  console.log("Computer chose: " + computerChoice)
+  console.log('Computer chose: ' + computerChoice)
   compare(userChoice, computerChoice)
 } else {
-  console.log("That's not a valid move!")
+  console.log('That is not a valid move!')
 }
 
 function compare(choice1, choice2){
   var message
   if (choice1 === choice2) {
-    message = "The result is a tie!"
-  } else if (choice1 === "rock") {
-    if (choice2 === "scissors") {
-      message = "rock wins - congratulations!"
+    message = 'The result is a tie!'
+  } else if (choice1 === 'rock') {
+    if (choice2 === 'scissors') {
+      message = 'rock wins - congratulations!'
     } else {
-      message = "paper wins - rematch?"
+      message = 'paper wins - rematch?'
     }
-  } else if (choice1 === "paper") {
-    if (choice2 === "rock") {
-      message = "paper wins - congratulations!"
+  } else if (choice1 === 'paper') {
+    if (choice2 === 'rock') {
+      message = 'paper wins - congratulations!'
     } else {
-      message = "scissors wins - rematch?"
+      message = 'scissors wins - rematch?'
     }
-  } else if (choice1 === "scissors") {
-    if (choice2 === "rock") {
-      message = "rock wins - rematch?"
+  } else if (choice1 === 'scissors') {
+    if (choice2 === 'rock') {
+      message = 'rock wins - rematch?'
     } else {
-      message = "scissors wins - congratulations!"
+      message = 'scissors wins - congratulations!'
     }
   }
   console.log(message)
 }
-
 ```
+
+#### Refactor
+
+One important part of programming is *refactoring*. When you're writing code, you don't have to write it in the most efficient way first, just make it work. After it works, you can refactor it, which means rewrite the code so that it does the same thing, but in fewer lines of code.
+
+Let's refactor how the computer chooses its move. Right now we have that written in 8 lines of code:
+
+```js
+var computerChoice = Math.random()
+if (computerChoice < 0.34) {
+  computerChoice = 'rock'
+} else if(computerChoice <= 0.67) {
+  computerChoice = 'paper'
+} else {
+  computerChoice = 'scissors'
+}
+```
+
+Let's rewrite it in only 2 lines! First we'll define an array of options:
+
+```js
+var options = ['rock', 'paper', 'scissors']
+var computerChoice = options[Math.floor(Math.random() + options.length)]
+```
+
+Let's walk through that piece by piece.
 
 ## Conclusion
 
