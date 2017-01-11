@@ -54,7 +54,7 @@ Now let's check the connection. Add this line to your JavaScript file:
 console.log('connected')
 ```
 
-Open your HTML file in the browser and then open the Chrome Developer Tools (`command option i`) and click on the **console** tag. You should see this:
+Open your HTML file in the browser and then open the Chrome Developer Tools (`command option i`) and click on the **console** tab. You should see this:
 
 ![connected](./assets/connected.png)
 
