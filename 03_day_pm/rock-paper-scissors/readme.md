@@ -48,6 +48,20 @@ First, set up the HTML boilerplate (`html` + *tab*). Now let's bring in our Java
 
 If your project includes DOM manipulation (which we will cover tomorrow), the JavaScript needs to load *after* all of the HTML loads. Since there's no DOM manipulation in this project, we can load the JavaScript first, so it's fine where it is.
 
+At this point, your entire HTML document should be:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <script type="text/javascript" src="./js/app.js"></script>
+</head>
+<body>
+</body>
+</html>
+```
+
 Now let's check the connection. Add this line to your JavaScript file:
 
 ```js
@@ -58,7 +72,24 @@ Open your HTML file in the browser and then open the Chrome Developer Tools (`co
 
 ![connected](./assets/connected.png)
 
-Our JavaScript is connected to our HTML, so now we can start translating our pseudocode into code!
+Our JavaScript is connected to our HTML!
+
+## Loading
+
+Add these lines to your JavaScript file:
+
+```js
+console.log(lang)
+var lang = 'JavaScript'
+```
+
+![undefined](./assets/undefined.png)
+
+Notice that when we logged the variable `lang` to the console, it returned `undefined`. If you type `lang` into the console and press enter it will print "JavaScript", not `undefined`. 
+
+![What up with that?](https://media.giphy.com/media/3oz8xA491g1vZfmRhK/giphy.gif)
+ 
+JavaScript reads from top to bottom. When line 3 ran, line 4 hadn't run yet, so the variable `lang` was undefined at that moment. Let's keep that in mind as we write our Rock Paper Scissors program.
 
 ## Rock Paper Scissors Code Along
 
