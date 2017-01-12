@@ -1,125 +1,42 @@
-#[Bootstrap](http://getbootstrap.com/getting-started/)
+#HTML DOM Manipulation using Vanilla JS
 
-Bootstrap is a CSS framework made by twitter. It can be used to make great looking websites very quickly. 
+###ROADMAP
 
-#ROADMAP:
-
-1. Bootstrap Setup
-2. CSS 
-3. Components
-4. Javascript Components
-5. Bootstrap Bill catch up code along
-
-Then we will do a catch-up code along and build the following bootstrap site:
-
-![](bootstrap-bill.png)
+* Intro to the DOM
+* Selectors in Vanilla JS
+* DOM Manipulations
+* Event Listenners
 
 
-##1. Setup
-For the purposes of today we should use the bootstrap CDN: 
+## The DOM
+![](pic_htmltree.gif)
+source: w3 
 
-```html
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-```
-
-By including the above in your HTML `<head>` you will make all the tools that bootstrap needs at you disposal for working with bootstrap.
-
-####A bit more setup
-
-JQuery is required!! 
-
-Who can remember what CDN stands for? 
-
-####Activity: Everybody research a good CDN to use with bootstrap! 
-
-<!-- https://github.com/twbs/bootstrap/blob/v3.3.7/bower.json -->
-
-> Side-note: sourcing dependencies in the correct order
-
----
-
-##2. CSS
+DOM - the Document Object Model is how we represent the HTML document or webpage that we are looking at. It is organized in a tree-like structure. Selectors in Vanilla JS work differently to in CSS. 
 
 
-### Activity!
-
-Boostrap has 3 main offerings: CSS library, HTML components, and Javascript powered components.
-
-For each category, we are going to do a **short activity**:
-
-> research the bootstrap feature you have been assigned and present to the class how you think that feature works. 
- 
+[link](http://www.w3schools.com/js/js_htmldom_document.asp)
 
 
-* Containers
-* Typography
-* Tables
- 
-<!--
-<table>
-		  <tr>
-		    <th>Company</th>
-		    <th>Contact</th>
-		    <th>Country</th>
-		  </tr>
-		  <tr>
-		    <td>Alfreds Futterkiste</td>
-		    <td>Maria Anders</td>
-		    <td>Germany</td>
-		  </tr>
-		  <tr>
-		    <td>Centro comercial Moctezuma</td>
-		    <td>Francisco Chang</td>
-		    <td>Mexico</td>
-		  </tr>
-		  <tr>
-		    <td>Ernst Handel</td>
-		    <td>Roland Mendel</td>
-		    <td>Austria</td>
-		  </tr>
-		  </tr>
-</table> -->
-* Forms
+##HTML Selectors
 
-<!--
-<form action="...">
-  First name:<br>
-  <input type="text" name="firstname">
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
--->
-* Buttons
-* Images
-* Grid System (& responsive)
+`document.getElementById(id)`	Find an element by element id
 
-##3. Components
+`document.getElementsByTagName(name)`	Find elements by tag name
 
-* Glyphicons
-* Navbar
-* Jumbotron
-* Wells
+`document.getElementsByClassName(name)`	Find elements by class name
 
-##4. Javascript
+##DOM Manipulation
 
-* Modal
-* Carousel
-* Togglable Tabs
-* Tooltips
-* Collapse
+`element.innerHTML =` Change the inner HTML of an element
 
-##5. LAB
+`element.value` For obtain the value of an input form field
 
-Bootstrap is all about learning for yourself! 
+`element.setAttribute(attribute, value)`	Change the attribute value of an HTML element
+
+`element.style.property =` Change the style of an HTML element
+
+##Event Listenners
+`addEventListenner(event, functionCall)` This allows you te register an event listenner. 
+
+You can also use `onclick="functionCall()"` in the HTML but this is not considered best practice.
