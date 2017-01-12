@@ -2,20 +2,19 @@
 
 ## Objectives
   1. Understand what jQuery is, and when to use it
-  2. Learn how to include jQuery in your projects
-  3. Understand how to apply jQuery selectors to manipulate DOM elements
-  4. Add and remove DOM elements using jQuery
-  5. Bind events with jQuery
+  2. Understand how to apply jQuery selectors to manipulate DOM elements
+  3. Add and remove DOM elements using jQuery
+  4. Bind events with jQuery
 
 ## What is jQuery?
 jQuery is a 3rd-party library that is intended to make front-end development tasks — particularly those involving DOM selection and manipulation — easier, faster, and more fun.
 
 ### But wait, what do we mean by 'library'?
-**A `library`** is just a collection of reusable methods that serve a particular purpose.
+A **`library`** is just a collection of reusable methods that serve a particular purpose.
 
 
 ### So, as a library, what does jQuery offer us?
-  - jQuery helps us manipulate the DOM, allowing us to perform complex manipulations in less code with less hassle
+  - jQuery helps us manipulate the DOM, allowing us to perform complex manipulations in fewer lines of code with less hassle
   - jQuery's syntax was developed to mimic CSS selector syntax, making code easier to develop, read, and manage
   - The syntax is shorter, so there's less to remember! 😜
   - jQuery deals with many cross-browser compatibility issues for us
@@ -27,43 +26,23 @@ jQuery is a 3rd-party library that is intended to make front-end development tas
 
 #### 1. Reference jQuery from a server on the internet
 Directly from jQuery's website (http://code.jquery.com/)
-`<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>`
+`<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>`
 From a CDN (content delivery network) like [CDNJS](https://cdnjs.com/) or [Google Hosted Libraries](https://developers.google.com/speed/libraries/)
 
-`<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>`
+`<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>`
 
 #### 2. Download a copy of jQuery to host on your own server
 
 [CDNJS](http://www.cdnjs.com), [Google Hosted Libraries](https://developers.google.com/speed/libraries/), and the [jQuery site](http://www.jquery.com) will all allow you to download a copy of jQuery to include in your projects.
 
-<!--Also - let's stick with JQuery 1.x for now (see below).
-
-#### '.min.js' filename
-
-If you look carefully at the filenames of the jQuery versions you download, or just look at the URL in the "src" attribute for each script tag above, you'll notice something at the end of each file name — namely, that they end in 'min.js'. This means the javascript code has been minified.
-
-#### Minified
-
-Minification is the process of making a javascript file smaller by, among other things, removing all line breaks and whitespace, reducing the length of variable and function names, and stripping out all comments. Minification can significantly reduce the size of a javascript file, and in turn, significantly decrease the time it takes our browsers to load the file into memory.
-
-In jQuery's 1.11.1's case, the original (unminified) code is about 276 kilobytes, whereas the minified code is only 94 kilobytes. That makes the minified version about **one-third** the size of the original - not bad!
-
-Minified scripts can be difficult to read, so most servers that host jQuery and other libraries will also offer the original (non-minified) version of the code so developers can understand the code.
-
-Minification is performed on a javascript library when it's ready for release and there are many options for doing this. If you'd like to minify your own scripts, try a google search to check out the various options. Or, you can try the [Closure Compiler from Google](https://developers.google.com/closure/compiler/) which runs locally on your computer like any other piece of software you might use as a developer.
-
-Also, if you do happen to come across a library where you can't find a non-minified version to look at, software also exists to decompress a minified script. These are usually called unminifiers, pretty-printers, or beautifiers. They take a minified javascript file and attempt to decompress it, making it easier to read and understand.
-
-**Even if you don't fully understand the code, it's a good exercise to visit code.jquery.com and take a look at minified and non-minified jQuery.**
-
 #### 1.x vs. 2.x vs. 3.x jQuery
 
-If you visit code.jquery.com, you'll see that there are three major versions in development.
+If you visit [code.jquery.com](code.jquery.com), you'll see that there are three major versions in development.
   - The 1.x branch is the most cross-browser-compatible version of the jQuery core.
   - The 2.x branch, while offering some new features, is not compatible with older web browsers — most notably, it's not compatible with Internet Explorer versions 8 and below.
   - The 3.x branch is the newest, but it is also not compatible with Internet Explorer versions 8 and below.
 
------>
+Today we will use version 2.2.4 in our Rock Paper Scissors project.
 
 ### Intro to DOM manipulation
 
@@ -118,7 +97,6 @@ To select all elements of a particular class, use CSS syntax again:
 And you can use more complicated CSS selectors as well
 `$('p.anotherClass') // Selects all <p> tags that also have the class "anotherClass" (<p class="anotherClass">)`
 
-
 ###### If you use variable assignment when doing a selection, a "jQuery" object is returned
 
 We prepend `$` to variable names when a variable is going to be a jQuery object to help us remember what that variable is for.
@@ -126,7 +104,7 @@ We prepend `$` to variable names when a variable is going to be a jQuery object 
 
 However, we don't have to prepend `$` to our variables. It's just so we can remember what a variable is being used for. `var jqObject = $('p') // This is functionally identical to the version above that includes the '$' in front of jqObject.`
 
-A jQuery object has access to jQuery methods.
+A jQuery object has access to jQuery methods, so the `$` is a quick way to signal to yourself and other developers that a specific variable has access to those methods.
 
 #### Selecting a DOM element and changing its content
 
@@ -143,7 +121,7 @@ OR
 document.getElementById('myDiv').innerHTML = "Goodbye world!"
 ```
 
-Now the code above isn't too hard to deal with, but even so, in jQuery, this is a lot leaner.
+Now the code above isn't too hard to deal with, but in jQuery, this is a lot leaner.
 
 ```js
 $('#myDiv').html("Goodbye world!")
@@ -166,12 +144,27 @@ If we wanted to **save our selection as a jQuery object**, the code would look l
 There are three things about the example above that make jQuery easier to use:
 
   1. jQuery is using the same syntax as CSS to select elements - `.` for a class and `#` for an id.
-  2. jQuery allows us to chain methods together to accomplish our goals (i.e., $().html(...) ), making code shorter and easier to understand.
+  2. jQuery allows us to chain methods together to accomplish our goals (i.e., `$().html(...)` ), making code shorter and easier to understand.
   3. jQuery deals with any cross-browser compatibility issues, which may not seem like a big deal in this example, but which quickly become difficult to deal with as things get more complex.
+
+Let's create a project so we can see jQuery in action. In terminal:
+
+```bash
+cd ~/Desktop
+mkdir jQuery-practice
+cd jQuery-practice
+mkdir css js
+touch index.html css/style.css js/app.js
+open .
+```
+
+Then drag the jQuery-practice folder to the Sublime Text icon in your dock to open the whole project in Sublime.
+
+Make the HTML boilerplate, then link the CSS and JS files to the HTML. Also add the jQuery link. Let's talk about *where* these script tags should go. **The order and placement matters!**
 
 #### Appending a DOM element to a parent element
 
-Consider the following HTML page...
+Let's add a div to our HTML:
 
 ```html
   <div id="container"></div>
@@ -236,54 +229,77 @@ Refresh your page to make sure it works. Then add this to your JavaScript:
 $('div').removeClass('bold')
 ```
 
-
 ## Adding and Removing Elements Using jQuery
 
 Sometimes in a dynamic web application, user-input is meant to trigger the addition or removal of content or functionality. Using jQuery, we can easily create new DOM elements and insert them into the DOM, or remove existing elements (and any content they contain) from the DOM.
 
-So, let's imagine we have a web page with the following content on it:
+Let's comment out everything in our JS file (leave the two classes in our CSS file).
+Now let's change our HTML file to look like this:
 
 ```html
 <body>
-  <div id="outerContainer">
-    <div class="innerItem innerItemHeader">Enjoy some hipster ipsum:</div>
-    <div class="innerItem">
-      Aesthetic migas paleo McSweeney's, pork belly Kickstarter Echo Park sriracha keytar disrupt viral drinking vinegar fanny pack typewriter.
-    </div>
+  <div id="container">
+    <input type="text" id="addToList">
+    <button id="addItem">Add Item</button>
+    <ul id="myList">
+      
+    </ul>
   </div>
+  <script src="./js/app.js"></script>
 </body>
 ```
 
-Let's say we want to add some more hipster ipsum to the page. Something like:
+Right now, if you type into the input field and click the button, nothing happens. Let's write some jQuery to make it do something.
 
+```js
+$('#addItem').click(function() {
+  var $newItem = $('#addToList').val()
+  console.log($newItem)
+})
 ```
-<div class="innerItem">
-	Farm-to-table Godard roof party bespoke, fashion axe mustache vinyl.
-</div>
+
+Now, when we click the button, the text from the input field gets logged to the console. Cool! We can also append the text to the ul. Replace the console.log like so:
+
+```js
+$('#addItem').click(function() {
+  var $newItem = $('#addToList').val()
+  $('#myList').append('<li>' + $newItem + '</li>')
+})
+```
+We can also add another line to clear out the input field after the text has been added to our list:
+
+```js
+$('#addItem').click(function() {
+  var $newItem = $('#addToList').val()
+  $('#myList').append('<li>' + $newItem + '</li>')
+  $('#addToList').val('')
+})
 ```
 
-To add this DIV, and our hipster ipsum content using jQuery, we'd do the following:
+Lastly, let's make it so that when we click a black list item, it turns red, and vice versa.
 
-Define a new DIV and assign jQuery object to $newDiv
+Earlier we used `addClass` and `removeClass`. Now we can use `toggleClass`.
 
-`$newDiv = $('<div>')`
+```js
+$('#addItem').click(function() {
+  var $newItem = $('#addToList').val()
+  $('#myList').append('<li>' + $newItem + '</li>')
+  $('li').click(function() {
+    $(this).toggleClass('red')
+  })
+  $('#addToList').val('')
+})
+```
 
-Add hipster ipsum content
+## Conclusion
 
-`$newDiv.html('Farm-to-table Godard roof party bespoke, fashion axe mustache vinyl.')`
+We're going to practice jQuery a lot when we rebuild Rock Paper Scissors in a few minutes, but let's do a quick review first:
 
-Set its class to innerItem
-`$newDiv.addClass('innerItem')`
-
-Append our new element  
-`$('#outerContainer').append($newDiv)`
-
-##Conclusion
-
-Looking at the HTML page from the previous exercise, let's write some jQuery for it. Let's use jQuery to:
-
-- add a p tag within the div with id "myDiv"
-- add class "small-text" to the new p tag
-- add class "bold" to the new p tag
-- remove class "bold" from the div with id "container"
-- add some text to the p tag, "I'm using jQuery - hooray!"
+1. How do you select elements in jQuery using tag name, class name, or id?
+2. What is the jQuery equivalent to this vanilla JavaScript?
+	
+	```js
+	document.getElementById('container').addEventListener('click', function() {
+  		console.log('CLICK HAPPENS!')
+	})
+	```
