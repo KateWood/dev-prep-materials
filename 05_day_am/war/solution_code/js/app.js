@@ -1,34 +1,49 @@
 console.log('connected')
 
-//////////////////// Global Variables ////////////////////
-var pot	 = []
+////////// Global Variables //////////
+
+var player1
+var player2
 var suits = ['spades', 'hearts', 'clubs', 'diamonds']
 var vals = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
+// var vals = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 var deck = []
+var pot = []
 
-//////////////////// Create players ////////////////////
-
-function getPlayerNames() {
-	var user1 = prompt('Player 1, please enter your name')
-	player1 = new Player(user1)
-	var user2 = prompt('Player 2, please enter your name')
-	player2 = new Player(user2)
-}
+////////// Get Player Names //////////
 
 function Player(name) {
 	this.name = name
 	this.hand = []
 }
 
-getPlayerNames()
+function getNumPlayers() {
+	var numPlayers = prompt('Are there 1 or 2 players?')
+	getPlayerNames(numPlayers)
+	// getPlayerNames(1)
+}
 
-//////////////////// Build deck of cards ////////////////////
+function getPlayerNames(num) {
+	var p1name = prompt('Player 1, please enter your name')
+	player1 = new Player(p1name)
+	// player1 = new Player('Kate')
+	if (num == 2) {
+		var p2name = prompt('Player 2, please enter your name')
+		player2 = new Player(p2name)
+	} else {
+		player2 = new Player('Computer')
+	}
+}
+
+getNumPlayers()
+
+////////// Build Deck //////////
 
 function Card(suit, value) {
 	this.suit = suit
 	this.value = value
 	this.declare = function() {
-		return (value + ' of ' + suit)
+		return (this.value + ' of ' + this.suit)
 	}
 }
 
@@ -46,7 +61,7 @@ newDeck()
 function shuffle() {
 	var shuffledDeck = []
 	var length = deck.length
-	for (var i = 0; i < length; i++) {
+	for(var i = 0; i < length; i++) {
 		var pick = Math.floor(Math.random() * deck.length)
 		shuffledDeck.push(deck.splice(pick, 1)[0])
 	}
@@ -54,11 +69,12 @@ function shuffle() {
 }
 
 function deal(cards) {
-	player1.hand = cards.splice(0, 26)
+	var half = Math.floor(cards.length/2)
+	player1.hand = cards.splice(0, half)
 	player2.hand = cards
 }
 
-//////////////////// Game Play ////////////////////
+////////// Game Play //////////
 
 function battle() {
 	var card1 = player1.hand.shift()
@@ -69,7 +85,7 @@ function battle() {
 	} else if (vals.indexOf(card2.value) > vals.indexOf(card1.value)) {
 		player2.hand.push(card1, card2)
 		console.log(player2.name + ' wins ' + card1.declare() + ' with ' + card2.declare())
-	} else if (vals.indexOf(card1.value) === vals.indexOf(card2.value)) {
+	} else {
 		console.log(player1.name + ' played ' + card1.declare() + ' and ' + player2.name + ' played ' + card2.declare() + '. THIS MEANS WAR!')
 		war(card1, card2)
 	}
@@ -81,38 +97,44 @@ function battle() {
 function checkForWin() {
 	if (player1.hand.length === 0 || player2.hand.length === 0) {
 		var winner = player1.hand.length > 0 ? player1.name : player2.name
+		// var winner
+		// if(player1.hand.length > 0) {
+		// 	winner = player1.name
+		// } else {
+		// 	winner = player2.name
+		// }
 		console.log(winner + ' wins! Redealing cards...')
 		newDeck()
 	}
 }
+
+////////// War //////////
 
 function war(card1, card2) {
 	pot.push(card1, card2)
 	wager(player1)
 	wager(player2)
 	var potList = declarePot()
-	console.log('The pot at stake is ' + potList)
+	console.log('The pot at stake is ' + potList + '.')
 	if (player1.hand.length > 0 && player2.hand.length > 0) {
 		var warCard1 = player1.hand.shift()
 		var warCard2 = player2.hand.shift()
 		if (vals.indexOf(warCard1.value) > vals.indexOf(warCard2.value)) {
 			console.log(player1.name + ' wins ' + warCard2.declare() + ' with ' + warCard1.declare())
 			player1.hand.push(warCard1, warCard2)
-			pot.forEach(function(prize){
-				player1.hand.push(prize)
-			})
-			pot = []
+			spoils(player1)
 		} else if (vals.indexOf(warCard2.value) > vals.indexOf(warCard1.value)) {
 			console.log(player2.name + ' wins ' + warCard1.declare() + ' with ' + warCard2.declare())
 			player2.hand.push(warCard1, warCard2)
-			pot.forEach(function(prize){
-				player2.hand.push(prize)
-			})
-			pot = []
-		} else if (vals.indexOf(warCard1.value) === vals.indexOf(warCard2.value)) {
+			spoils(player2)
+		} else {
 			console.log(player1.name + ' played ' + warCard1.declare() + ' and ' + player2.name + ' played ' + warCard2.declare() + '. THIS MEANS WAR!')
 			war(warCard1, warCard2)
 		}
+	} else if (player1.hand.length > 0) {
+		spoils(player1)
+	} else {
+		spoils(player2)
 	}
 }
 
@@ -136,4 +158,11 @@ function declarePot() {
 		list.push(card.declare())
 	})
 	return list.join(', ')
+}
+
+function spoils(player) {
+	pot.forEach(function(prize) {
+		player.hand.push(prize)
+	})
+	pot = []
 }
