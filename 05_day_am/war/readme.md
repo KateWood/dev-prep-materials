@@ -130,6 +130,18 @@ function battle() {
 }
 ```
 
+Let's pause for a moment and talk about the `debugger` keyword.
+
+> You can set breakpoints in the code with the `debugger` keyword. If the console is open and the interpreter is going through a line in the code that contains `debugger`, then the console will highlight this line and the console will be in the context of the `debugger`.
+
+> Let's add a debugger where we will be calling a war function.
+
+> The DevTools console drawer will allow you to experiment within the scope of where the debugger is currently paused. Hit the **Esc** key to bring the console into view. The Esc key also closes this drawer.
+
+> We can use this to help us when we're not sure of the value of a variable at a specific moment in our code.
+
+> Let's keep this in mind for later.
+
 Now we need to fill out how to check for a winner. If one player has no cards left, then the other player wins.
 
 ```js
